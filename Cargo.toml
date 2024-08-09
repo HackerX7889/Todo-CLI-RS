@@ -1,0 +1,17 @@
+[package]
+name = "todo_cli_rs"
+description = "A simple TODO list management application."
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+authors = ["HackerX"]
+repository = "https://github.com/HackerX7889/Todo-CLI-RS"
+
+[dependencies]
+colored = "2.1.0"
+
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3

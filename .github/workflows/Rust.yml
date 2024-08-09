@@ -1,0 +1,27 @@
+name: Rust
+
+on:
+  push:
+    branches: [ "main" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: stable
+          components: rustfmt
+      - name: Check Format
+        run: cargo fmt -- --check || true
+      - name: Build
+        run: cargo build --verbose
+      - name: Tests
+        run: cargo test --verbose
+      - name: Run
+        run: cargo run --verbose
