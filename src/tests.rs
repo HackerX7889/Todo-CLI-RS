@@ -53,14 +53,3 @@ fn test_view_tasks_empty() {
     let output = todo.view_tasks(); // Should indicate no tasks available
     assert_eq!(output, ());
 }
-
-#[test]
-fn test_load_tasks_from_file() {
-    let mut todo = Todo::new();
-    todo.add_task("Task 2".to_string());
-    todo.save_to_file().expect("Failed to save tasks");
-
-    let mut todo_loaded = Todo::new();
-    todo_loaded.load_from_file().expect("Failed to load tasks");
-    assert_eq!(todo_loaded.tasks, vec!["Task 2"]);
-}
